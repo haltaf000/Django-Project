@@ -1,0 +1,12 @@
+{% extends "tasks/layout.html" %}
+
+{% block body %}
+<h1>Delete Task:</h1>
+<p>Are you sure you want to delete the task "{{ task }}"?</p>
+<form action="{% url 'tasks:delete' task_index %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Yes, delete</button>
+</form>
+<br>
+<a href="{% url 'tasks:index' %}">No, go back</a>
+{% endblock %}
